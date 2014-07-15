@@ -2,7 +2,6 @@ RiscGpu
 =======
 Copyright (C) 2014 by GrAphics RISC Technology Company (GART). 
 
-## RISC GPU
 ##1. Introduction
 ORGFX and THEIA are two opencore GPU project. THEIA abstracts the common graphical operations into matrix
 process and develop the vector ALU. The graphic core has adepted the pipelined RISC CPU concept. While the
