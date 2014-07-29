@@ -1,3 +1,4 @@
+
 //Author      : Alex Zhang (cgzhangwei@gmail.com)
 //Date        : 07-28-2014
 //Description : Behavior model of vertex shader ALU
@@ -16,6 +17,10 @@ oOverflow
 );
 parameter ALU_MUL_DELAY = 8;
 parameter ALU_ADD_DELAY = 8;
+parameter S_ALU_IDLE = 2'b00, 
+          S_ALU_WAIT = 2'b01,
+          S_ALU_COMP = 2'b10;
+
 input clk;
 input resetn;
 input iValid;
@@ -57,32 +62,81 @@ FFD_PosedgeAsyncEnable #(`SHADER_ALU_DATA_WIDTH) FFD_Op(
   .D(iALU_Op),
   .Q(wALU_Op)
 );
-
-reg [7:0] counter;
+wire  wValid;
+FFD_PosedgeAsync #(`SHADER_ALU_DATA_WIDTH) FFD_Valid(
+  .clk(clk),
+  .resetn(resetn),
+  .D(iValid),
+  .Q(wValid)
+);
+reg [7:0]                        counter;
+reg                              rReady;
 reg [`SHADER_ALU_DATA_WIDTH-1:0] rResult;
-reg       rReady;
+reg [`SHADER_ALU_DATA_WIDTH-1:0] rResultHi;
+reg [1:0]                        state, next_state;
 
 always @(posedge clk or negedge resetn) begin 
     if (~resetn) begin 
-        counter <= 8'h0;
-        rReady <= 1'b0;
-        rResult <=`SHADER_ALU_DATA_WIDTH'b0;
+        state <= S_ALU_IDLE;
+    end else begin  
+        state <= next_state;
+    end 
+end 
+
+always @(*) begin 
+    next_state = state ;
+    case (state) 
+        S_ALU_IDLE : begin 
+                        next_state = wValid ? S_ALU_WAIT : S_ALU_IDLE;
+                     end 
+        S_ALU_WAIT : begin 
+                        if (counter == ALU_MUL_DELAY && wALU_Op ==`OP_DP4 ) begin 
+                            next_state = S_ALU_COMP;
+                        end else   begin
+                            next_state = S_ALU_WAIT;
+                        end 
+                     end 
+        S_ALU_COMP : begin 
+                        next_state = S_ALU_IDLE;
+                     end 
+    endcase 
+end 
+
+always @(posedge clk or negedge resetn) begin 
+    if (~resetn) begin 
+        counter   <= 8'b0;
+        rResult   <=`SHADER_ALU_DATA_WIDTH'b0;
+        rResultHi <=`SHADER_ALU_DATA_WIDTH'b0;
+        rReady    <= 1'b0;
     end else begin 
-        counter <= iValid ? 8'b0 : counter + 8'b1;
-        if (counter == ALU_MUL_DELAY && wALU_Op ==`OP_DP4 ) begin 
-           rResult <= wA * wB; 
-           rReady  <= 1'b1;
-        end else begin 
-           rReady  <= 1'b0;
-           rResult <= `SHADER_ALU_DATA_WIDTH'b0;
-        end 
+        case (state)
+            S_ALU_IDLE : begin 
+                             counter   <= 8'b0;
+                             rReady    <= 1'b0;
+                             rResult   <=`SHADER_ALU_DATA_WIDTH'b0;
+                             rResultHi <=`SHADER_ALU_DATA_WIDTH'b0;
+                         end 
+            S_ALU_WAIT : begin 
+                             counter   <= counter + 8'b1;
+                             rReady    <= 1'b0;
+                             rResult   <=`SHADER_ALU_DATA_WIDTH'b0;
+                             rResultHi <=`SHADER_ALU_DATA_WIDTH'b0;
+                         end 
+            S_ALU_COMP : begin 
+                             counter             <= 8'b0;
+                             if (wALU_Op ==`OP_DP4) begin 
+                                 rReady              <= 1'b1;
+                                 {rResultHi,rResult} <= wA*wB;
+                             end 
+                         end  
+        endcase 
     end 
 end 
 
 assign oReady  = rReady;
 assign oResult = rResult;
 assign oZero   = rResult == 32'b0 ? 1'b1 : 1'b0; 
-assign oOverflow = 1'b0;
+assign oOverflow = rResultHi != 32'b0;
 
 endmodule  //shader_alu
 
@@ -102,6 +156,9 @@ oZero,
 oOverflow
 );
 parameter ALU_ACC_DELAY = 12;//Single Add is 6 cycles 
+parameter S_ALU_IDLE = 2'b00, 
+          S_ALU_WAIT = 2'b01,
+          S_ALU_COMP = 2'b10;
 input  clk;
 input  resetn;
 input  iValid;
@@ -166,27 +223,67 @@ FFD_PosedgeAsync #(`SHADER_ALU_DATA_WIDTH) FFD_Valid(
 
 reg [`SHADER_ALU_DATA_WIDTH-1:0] rResult;
 reg                              rReady; 
+reg                              rOverflow;
+reg [1:0]                        state, next_state;
+
 always @(posedge clk or negedge resetn) begin 
     if (~resetn) begin 
-        counter <= 8'b0;
-        rResult <=`SHADER_ALU_DATA_WIDTH'b0;
-        rReady  <= 1'b0;
+        state <= S_ALU_IDLE;
+    end else begin  
+        state <= next_state;
+    end 
+end 
+
+always @(*) begin 
+    next_state = state ;
+    case (state) 
+        S_ALU_IDLE : begin 
+                        next_state = wValid ? S_ALU_WAIT : S_ALU_IDLE;
+                     end 
+        S_ALU_WAIT : begin 
+                        if (counter==ALU_ACC_DELAY)
+                            next_state = S_ALU_COMP;
+                        else  
+                            next_state = S_ALU_WAIT;
+                     end 
+        S_ALU_COMP : begin 
+                        next_state = S_ALU_IDLE;
+                     end 
+    endcase 
+end 
+
+always @(posedge clk or negedge resetn) begin 
+    if (~resetn) begin 
+        counter   <= 8'b0;
+        rResult   <=`SHADER_ALU_DATA_WIDTH'b0;
+        rReady    <= 1'b0;
+        rOverflow <= 1'b0;
     end else begin 
-        counter <= wValid ? 8'b0: counter + 8'b1;
-        if (counter == ALU_ACC_DELAY) begin  
-            rReady  <= 1'b1;
-            rResult <= wX + wY + wZ + wW;
-        end else begin 
-            rReady  <= 1'b0;
-            rResult <=`SHADER_ALU_DATA_WIDTH'b0;
-        end 
+        case (state)
+            S_ALU_IDLE : begin 
+                             counter   <= 8'b0;
+                             rReady    <= 1'b0;
+                             rResult   <=`SHADER_ALU_DATA_WIDTH'b0;
+                             rOverflow <= 1'b0;
+                         end 
+            S_ALU_WAIT : begin 
+                             counter   <= counter + 8'b1;
+                             rReady    <= 1'b0;
+                             rResult   <=`SHADER_ALU_DATA_WIDTH'b0;
+                             rOverflow <= 1'b0;
+                         end 
+            S_ALU_COMP : begin 
+                             counter             <= 8'b0;
+                             rReady              <= 1'b1;
+                             {rOverflow,rResult} <= wX + wY + wZ + wW;
+                         end  
+        endcase 
     end 
 end 
 assign oReady  = rReady;
 assign oResult = rResult;
 assign oZero   = rResult ==32'b0 ? 1'b1 : 1'b0;
-assign oOverflow = 1'b0;
+assign oOverflow = rOverflow;
 
 endmodule 
-
 

@@ -10,7 +10,9 @@ iA,
 iB,
 iALU_Op,
 oReady,
-oResult
+oResult,
+oZero,
+oOverflow
 );
 input  clk;
 input  resetn;
@@ -20,12 +22,16 @@ input  iB;
 input  iALU_Op;
 output oResult;
 output oReady;
+output oZero;
+output oOverflow;
 wire iValid;
 wire [`SHADER_CORE_DATA_WIDTH-1:0] iA;
 wire [`SHADER_CORE_DATA_WIDTH-1:0] iB;
 wire [`SHADER_ALU_OP_WIDTH-1:0]    iALU_Op;
 wire [`SHADER_ALU_DATA_WIDTH-1:0]  oResult;
 wire                               oReady;
+wire                               oZero;
+wire                               oOverflow;
 
 wire wReady_X;
 wire wReady_Y;
@@ -128,10 +134,6 @@ reg rValid_Y;
 reg rValid_Z;
 reg rValid_W;
 reg rValid_ACC;
-wire wReady_X;
-wire wReady_Y;
-wire wReady_Z;
-wire wReady_W;
 always @(*) begin 
     case (wALU_Op) 
         `OP_DP3 : begin 
@@ -229,5 +231,9 @@ shader_accumulator ACC (
 
 assign oResult = wResult_ACC;
 assign oReady  = wReady_ACC;
+assign oZero   = wZero_ACC;
+//FIXME: there is a risk here just has accumulator's overflow
+//Should overflow_acc | overflow_alu, that needs pipe
+assign oOverflow = wOverflow_ACC;
 
 endmodule 
