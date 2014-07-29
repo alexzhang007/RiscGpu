@@ -1,4 +1,3 @@
-
 //Author      : Alex Zhang (cgzhangwei@gmail.com)
 //Date        : 07-28-2014
 //Description : Behavior model of vertex shader ALU
@@ -286,4 +285,5 @@ assign oZero   = rResult ==32'b0 ? 1'b1 : 1'b0;
 assign oOverflow = rOverflow;
 
 endmodule 
+
 
