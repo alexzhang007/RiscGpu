@@ -27,3 +27,6 @@ API is called, the assembly code will be dispatched by CPU from DDR to GART GPU.
 * 08.18.2014 <br>
   Start the register spec definition, finish the Vertex Shader, Vertex Stream, Texture Unit. <br>
   Start the RTL coding for texture_unit_reg_top.v
+* 08.19.2014 <br>
+  Start the Vertex Streamer RTL coding. 
+  LineCount = 3515
