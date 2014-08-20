@@ -23,10 +23,3 @@ processed and the data will be written back to memory.
 Gart complier can parse Gart language into .so and generate the RISC assembly code and put into the memory. When OpenGL
 API is called, the assembly code will be dispatched by CPU from DDR to GART GPU. 
 
-##4. Status
-* 08.18.2014 <br>
-  Start the register spec definition, finish the Vertex Shader, Vertex Stream, Texture Unit. <br>
-  Start the RTL coding for texture_unit_reg_top.v
-* 08.19.2014 <br>
-  Start the Vertex Streamer RTL coding. 
-  LineCount = 3515

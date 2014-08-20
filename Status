@@ -1,7 +1,12 @@
+* 08.18.2014
+  Start to define the register specification for Texture unit, Vertex Shader, Vertex Streamer. <br>
+  Start and finish the RTL coding for register block of Texture Unit.
 * 08.19.2014
   Start the RTL coding for the Vertex Streamer 
   LineCount=3514
 * 08.20.014
-  Finish the most part the Vertex Streamer, starting the RTL coding for StreamerFetch in Streamer. Since the Streamer will send StreamerControlCommand to SFT and SLU or other subblocks and the SFT can aslo send the StreamerControlCommand to SLU, there should be a broadcast bus in the Streamer to chain the subblocks. Each block has receiver and transmitter. If the dest_id is the block, it will receive the request.
+  Finish the most part the Vertex Streamer, starting the RTL coding for StreamerFetch in Streamer. <br>
+  Since the Streamer will send StreamerControlCommand to SFT and SLU or other subblocks and the SFT can aslo send the StreamerControlCommand to SLU, there should be a broadcast bus in the Streamer to chain the subblocks. <br>
+  Each block has receiver and transmitter. If the dest_id is the block, it will receive the request.
   Need to finish the SFT subblock specification and diagram. 
   LineCount=4067
