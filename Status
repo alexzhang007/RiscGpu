@@ -1,3 +1,7 @@
 * 08.19.2014
   Start the RTL coding for the Vertex Streamer 
   LineCount=3514
+* 08.20.014
+  Finish the most part the Vertex Streamer, starting the RTL coding for StreamerFetch in Streamer. Since the Streamer will send StreamerControlCommand to SFT and SLU or other subblocks and the SFT can aslo send the StreamerControlCommand to SLU, there should be a broadcast bus in the Streamer to chain the subblocks. Each block has receiver and transmitter. If the dest_id is the block, it will receive the request.
+  Need to finish the SFT subblock specification and diagram. 
+  LineCount=4067
