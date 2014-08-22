@@ -14,4 +14,7 @@
   Finish the Command Broadcast Bus with AXI protocol.
   Start the RTL coding for Command Processor receiving AGP transaction from CPU.  Start the Specification of CP. 
   LineCount=4900
-
+* 08.22.2014
+  Continue the RTL coding for Command Processor. All the register via AGP arriving CP will dispatch to different blocks. The relation is 1 to N.
+  Continue the CP specification. 
+  LineCount=5423
