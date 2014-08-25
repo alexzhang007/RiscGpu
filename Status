@@ -18,3 +18,7 @@
   Continue the RTL coding for Command Processor. All the register via AGP arriving CP will dispatch to different blocks. The relation is 1 to N.
   Continue the CP specification. 
   LineCount=5423
+* 08.25.2014
+  Start the Command Processor RTL verification via UVM from Mentor Graphics. 
+  Register address space is done in GART_GPU_register.xlsx in Register Address Space tab. 
+  LineCount=530
