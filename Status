@@ -21,6 +21,9 @@
 * 08.25.2014
   Start the Command Processor RTL verification via UVM from Mentor Graphics. 
   Register address space is done in GART_GPU_register.xlsx in Register Address Space tab. 
-  LineCount=530
+  UVMLineCount=530 
 * 08.26.2014
   CmdProcessor 's UVM TB is already. However, the RTL debug is very complex and tedious. One time over one time. 
+ *08.27.2014
+   CmdProcessor register dispatch is OK. Focus on the memory request path.
+  LineCount=6270
