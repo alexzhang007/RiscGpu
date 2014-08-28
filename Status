@@ -27,3 +27,7 @@
  *08.27.2014
    CmdProcessor register dispatch is OK. Focus on the memory request path.
   LineCount=6270
+* 08.28.2014
+  I never have the experience in the parallel logic design and architecture. Now the ShaderFetch is the such architecture. Interesting!
+  Study the ShaderFetch,ShaderInstruction,ShaderEmulator. Learning process is very hard since you are absorbing new knowledge. 
+
