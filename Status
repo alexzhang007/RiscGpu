@@ -31,3 +31,6 @@
   I never have the experience in the parallel logic design and architecture. Now the ShaderFetch is the such architecture. Interesting!
   Study the ShaderFetch,ShaderInstruction,ShaderEmulator. Learning process is very hard since you are absorbing new knowledge. 
 
+* 09.02.2014
+  Shader Input RTL coding for NEW_PROGRAM command received fro Command processor and send AXI memory request to MC and load the data into the 64MB instruction memory.  Wait the UVM TB to verify
+  LineCount=6954
