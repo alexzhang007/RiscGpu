@@ -34,3 +34,6 @@
 * 09.02.2014
   Shader Input RTL coding for NEW_PROGRAM command received fro Command processor and send AXI memory request to MC and load the data into the 64MB instruction memory.  Wait the UVM TB to verify
   LineCount=6954
+* 09.03.2014
+  Debug the UVM TB to verify the Shader Fetch. 
+  UVMLineCount=1433
