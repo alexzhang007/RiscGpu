@@ -41,3 +41,6 @@
   Shader.ShaderFetch.AXI(MC) is done.
   Shader.ShaderFetch.AHB(NEW_PROGRAM) is done
   Shader.ShaderFetch.AHB(ShaderInput) is doing.
+* 09.05.2014
+  Shader Fetch has many threads forming a group. Each thread has the PC, how to map the PC to the ShaderInput is a question.
+
