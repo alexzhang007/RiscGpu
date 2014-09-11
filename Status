@@ -43,4 +43,5 @@
   Shader.ShaderFetch.AHB(ShaderInput) is doing.
 * 09.05.2014
   Shader Fetch has many threads forming a group. Each thread has the PC, how to map the PC to the ShaderInput is a question.
-
+* 09.10.2014
+  Rewrite the Shader Fetch thread table control logic with main-child FSM
