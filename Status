@@ -45,3 +45,5 @@
   Shader Fetch has many threads forming a group. Each thread has the PC, how to map the PC to the ShaderInput is a question.
 * 09.10.2014
   Rewrite the Shader Fetch thread table control logic with main-child FSM
+* 09.11.2014
+  New architecture of Shader Fetch is done and RTL is done. Need verification. 
