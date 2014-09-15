@@ -47,3 +47,6 @@
   Rewrite the Shader Fetch thread table control logic with main-child FSM
 * 09.11.2014
   New architecture of Shader Fetch is done and RTL is done. Need verification. 
+* 09.15.204
+  Start the shader decode RTL coding
+
