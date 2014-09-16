@@ -49,4 +49,6 @@
   New architecture of Shader Fetch is done and RTL is done. Need verification. 
 * 09.15.204
   Start the shader decode RTL coding
+* 09.16.204
+  Shader Register file RTL coding is done, not verified. It support the two groups of 4x32bit reigster data ouput, thus the ALU has 4.
 
