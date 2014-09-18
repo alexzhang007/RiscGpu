@@ -51,4 +51,5 @@
   Start the shader decode RTL coding
 * 09.16.204
   Shader Register file RTL coding is done, not verified. It support the two groups of 4x32bit reigster data ouput, thus the ALU has 4.
-
+* 09.17.2014
+  Start the Shader_Execute-Shader_Core-General_ALU coding.
