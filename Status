@@ -53,3 +53,5 @@
   Shader Register file RTL coding is done, not verified. It support the two groups of 4x32bit reigster data ouput, thus the ALU has 4.
 * 09.17.2014
   Start the Shader_Execute-Shader_Core-General_ALU coding.
+* 09.19.2014
+  Create the uvm tb for the float point arithmetic. 
