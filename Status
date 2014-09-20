@@ -55,3 +55,5 @@
   Start the Shader_Execute-Shader_Core-General_ALU coding.
 * 09.19.2014
   Create the uvm tb for the float point arithmetic. 
+* 09.20.2014
+  After the reset_gen is called in reset_phase, the simulus is right. 
