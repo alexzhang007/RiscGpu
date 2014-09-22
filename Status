@@ -59,3 +59,6 @@
   After the reset_gen is called in reset_phase, the simulus is right. 
 * 09.21.2014
   Create the domain name:grision.com contains the graphics vision. Starting the project and hope some investers can offer money to kick off the project.
+* 09.22.2014
+  Float point arithmetic is done, integer arithmetic is doing. Divide algorithm is still in investigation.
+
