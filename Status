@@ -63,3 +63,5 @@
   Float point arithmetic is done, integer arithmetic is doing. Divide algorithm is still in investigation.
 * 09.24.2014
   Start the Shader_Vector_ALU coding. 
+* 09.28.2014
+  Start the Grision_Compiler to extract the instruction from the OpenGL language. 
