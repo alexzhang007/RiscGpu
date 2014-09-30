@@ -65,3 +65,5 @@
   Start the Shader_Vector_ALU coding. 
 * 09.28.2014
   Start the Grision_Compiler to extract the instruction from the OpenGL language. 
+* 09.30.2014
+  Start the streamer block coding, streamer register block is doing.
