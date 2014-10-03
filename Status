@@ -69,4 +69,6 @@
   Start the streamer block coding, streamer register block is doing.
 * 10.1.2014
   Continue the the RTL coding for the Streamer Load Unit.
+* 10.3.2014
+  Streamer Register block RTL is done.
 
