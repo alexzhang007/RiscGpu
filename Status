@@ -71,4 +71,6 @@
   Continue the the RTL coding for the Streamer Load Unit.
 * 10.3.2014
   Streamer Register block RTL is done.
+* 10.09.2014
+  Streamer Fetch RTL coding
 
