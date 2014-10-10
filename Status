@@ -73,4 +73,6 @@
   Streamer Register block RTL is done.
 * 10.09.2014
   Streamer Fetch RTL coding
-
+* 10.10.2014
+  Streamer Output Cache RTL coding. Put the assign expression into the sequntial logic. The for loop needs a FSM to implement. 
+  RTL LineCount =15181
