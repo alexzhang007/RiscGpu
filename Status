@@ -78,4 +78,5 @@
   RTL LineCount =15181
 * 10.10.2014
   Finish the RTL Coding for Streamer Output Cache. Start the RTL coding for the Cache_4Way in Streamer Load Unit.
-
+* 10.13.2014
+  Adding the Cach in Streamer Load Unit
