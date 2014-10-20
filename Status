@@ -85,3 +85,6 @@
 * 10.17.2014
   Developed the Cache UVM verif env.
   Still has a issue to control the axi_rvalid. 
+* 10.20.2014
+  Cache UVM env is done.
+  Improve the Cache RTL
