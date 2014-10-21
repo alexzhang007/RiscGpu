@@ -88,3 +88,6 @@
 * 10.20.2014
   Cache UVM env is done.
   Improve the Cache RTL
+* 10.21.2014
+  Debug the Cache RTL and find the bug23 and bug24 and resolve them.
+
