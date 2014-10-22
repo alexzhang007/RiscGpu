@@ -92,3 +92,5 @@
   Debug the Cache RTL and find the bug23 and bug24 and resolve them.
 * 10.22.2014
   Modify the sequence location so that the adding testcase can be sequence and testcase in one file.
+  Add the cache_replace_test, modified the Makefile and Fix bug25.
+
