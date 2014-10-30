@@ -95,4 +95,5 @@
   Add the cache_replace_test, modified the Makefile and Fix bug25.
 * 10.24.2014
   Finish the Write-Back Cache Design and Verification.
-
+* 10.29.2014
+  Prepare a cache coherent pattern. 
