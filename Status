@@ -97,3 +97,5 @@
   Finish the Write-Back Cache Design and Verification.
 * 10.29.2014
   Prepare a cache coherent pattern. 
+* 11.06.2014
+  Continue the RTL coding for Streamer Load Unit
