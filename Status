@@ -99,3 +99,5 @@
   Prepare a cache coherent pattern. 
 * 11.06.2014
   Continue the RTL coding for Streamer Load Unit
+* 11.07.2014
+  Reviewing the RTL code, find it is somewhat not like the GPU. So dive into the graphics Letcture such as the cs.lth.se/eda075/lectures
