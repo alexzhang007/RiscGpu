@@ -106,3 +106,4 @@
   The roadmap will be :
   Non-unified shader ->Unified shader
   Redudant logic implement in Shader_ALU -> Precise logic reuse. 
+  Single Vertex Shader -> Parallel Veretex Shaders
