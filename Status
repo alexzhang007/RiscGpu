@@ -101,3 +101,8 @@
   Continue the RTL coding for Streamer Load Unit
 * 11.07.2014
   Reviewing the RTL code, find it is somewhat not like the GPU. So dive into the graphics Letcture such as the cs.lth.se/eda075/lectures
+* 11.12.2014
+  After the gfx study from the lund universtiy, switch to the separated shader impelmentation since the unified shader is complex for me. 
+  The roadmap will be :
+  Non-unified shader ->Unified shader
+  Redudant logic implement in Shader_ALU -> Precise logic reuse. 
