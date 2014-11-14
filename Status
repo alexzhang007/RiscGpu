@@ -107,3 +107,7 @@
   Non-unified shader ->Unified shader
   Redudant logic implement in Shader_ALU -> Precise logic reuse. 
   Single Vertex Shader -> Parallel Veretex Shaders
+* 11.14.2014
+  Vertex Shader RTL coding
+  CPU design is very important to the GPU design.
+  CPU+MultiCore = GPU
