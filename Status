@@ -111,3 +111,5 @@
   Vertex Shader RTL coding
   CPU design is very important to the GPU design.
   CPU+MultiCore = GPU
+* 11.18.2014
+  Start the RTL coding for the Vertex Fetch
