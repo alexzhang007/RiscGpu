@@ -115,3 +115,5 @@
   Start the RTL coding for the Vertex Fetch
 * 11.19.2014
   Continue the RTL coding for the Vertex Fetch
+* 11.21.2014
+  Add a tool to parse the Shader Language. Depot size=4.48MB
