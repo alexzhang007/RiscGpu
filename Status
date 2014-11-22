@@ -117,3 +117,6 @@
   Continue the RTL coding for the Vertex Fetch
 * 11.21.2014
   Add a tool to parse the Shader Language. Depot size=4.48MB
+* 11.22.2014
+  Shader language parser can print the instrunction. Depot size=4.64MB.
+  Next step is to print the binary instruction code.
