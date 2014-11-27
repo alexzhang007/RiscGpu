@@ -120,5 +120,6 @@
 * 11.22.2014
   Shader language parser can print the instrunction. Depot size=4.64MB.
   Next step is to print the binary instruction code.
-& 11.27.2014
+* 11.27.2014
   Prepare the Business plan.
+  Modify the shader language parser since the program.env program.local and state registers are global registers. They will be loaded into the param registers in the vertex shaders. 
