@@ -123,3 +123,5 @@
 * 11.27.2014
   Prepare the Business plan.
   Modify the shader language parser since the program.env program.local and state registers are global registers. They will be loaded into the param registers in the vertex shaders. 
+* 11.28.2014
+  Generate the Vertex Program Instruction from the Shader Language. However, theer is no to enhance to consider the gloabl registers program.local,program.env, state. When i add the code in the IRNode.h, the parser will be failed.
