@@ -127,4 +127,5 @@
   Generate the Vertex Program Instruction from the Shader Language. However, theer is no to enhance to consider the gloabl registers program.local,program.env, state. When i add the code in the IRNode.h, the parser will be failed.
 * 12.02.2014
   Shader Instruction is definitely defined, and decode rtl is updated.
- 
+* 12.03.2014
+  Add the AHB interface from the Shader register file to global register. 
