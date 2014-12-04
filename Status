@@ -129,3 +129,5 @@
   Shader Instruction is definitely defined, and decode rtl is updated.
 * 12.03.2014
   Add the AHB interface from the Shader register file to global register. 
+* 12.04.2014
+  Finish the instruction decode. Start the RTL coding for instruction execute.
