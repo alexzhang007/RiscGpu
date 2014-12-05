@@ -131,3 +131,5 @@
   Add the AHB interface from the Shader register file to global register. 
 * 12.04.2014
   Finish the instruction decode. Start the RTL coding for instruction execute.
+* 12.05.2014
+  Add the Camera registers, and the Shader Documents under doc/Readme.md
