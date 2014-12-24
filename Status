@@ -135,3 +135,6 @@
   Add the Camera registers, and the Shader Documents under doc/Readme.md
 * 12.17.2014
   Add the Matrix Engine RTL
+* 12.24.2014
+  Add the Matrix Generator RTL
+
